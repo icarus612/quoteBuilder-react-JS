@@ -1,8 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './application.css';
-import {animateBG} from '../assets/js/colorChanger.js';
-import anime from '../assets/anime/lib/anime.es.js';
+import anime from './anime/lib/anime.es.js';
 
 class QuoteMachine extends React.Component {
 
@@ -12,11 +11,7 @@ class QuoteMachine extends React.Component {
       currentPrice: 0,
     }
   }
-  componentDidMount(){
-		animateBG(".color-change-bg", ["#d8bfd8", "#DDA0DD", "#BA55D3", "#9932CC", "#4B0082", "#9370DB", "#DDA0DD"], 2000)
-		
 
-	}
 	render(){
 		return (
 			<article id="contact">
@@ -27,7 +22,7 @@ class QuoteMachine extends React.Component {
 										Your New Project Starts Here
 									</h1>
 									<h4 class="px-4 bold">
-                    Subtotal: {this.state.currentPrice}
+                    					Subtotal: {this.state.currentPrice}
 									</h4>
 									<form class="d-flex flex-column flex-wrap flex-md-row justify-content-center align-items-around">
 										<div class="my-4 col-12 col-md-6">
