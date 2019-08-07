@@ -22,12 +22,12 @@ code {
   border-radius: 8px;
   margin: 3px;
   color: #fefefe;
-  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 .btn-purple:hover {
   background-color: #CA7EDD;
-  transition: .5s transform;
-  transform: translateY(-5px);
+  transition: .2s transform;
+  transform: translateY(-2px);
   box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.52), 0 4px 25px 0px rgba(0, 0, 0, 0.18), 0 8px 10px -5px rgba(0, 0, 0, 0.25);
   color: white !important;
   border-color: transparent !important;
@@ -38,10 +38,12 @@ code {
 
 .btn-purple-basic { 
   background-color: transparent;
-  border-color: #fff;
-  color: #fafafa;
+  border-color: #D392E3;
+  color: #D392E3;
   border-radius: 8px;
   margin: 3px;
+  box-shadow: 0 4px 8px -12px rgba(0, 0, 0, 0.42), 0 4px 10px 0px rgba(0, 0, 0, 0.12);
+
 }
 .card {
   border: none;
@@ -50,6 +52,15 @@ code {
   overflow: hidden;
   transition: .1s;
   width: 100%;
+}
+
+.price-card {
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: .1s;
+  width: 100%;
+  background-color: #f1f1f1;
 }
 .card .image {
   width: 100%;
@@ -62,15 +73,10 @@ code {
 .text-purp {
   color: #A632C2;
 }
-.card:hover{
-  width: 105%;
-  transition: .4s;
-
-}
 .btn-purple-basic:hover {
   background-color: #fff;
-  transition: .5s transform;
-  transform: translateY(-5px);
+  transition: .2s transform;
+  transform: translateY(-2px);
   box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   color: #D392E3 !important;
   border-color: #D392E3 !important;
@@ -166,10 +172,10 @@ code {
 textarea{
   height: 130px;
 }
-input{
+input[type=text], input[type=phone]{
   height: 30px;
 }
-input, textarea {
+  input[type=text], input[type=phone], textarea {
   width: 100%;
   border-radius: 4px;
   box-shadow: 0px 0px 3px -1px rgba(50,50,50,.5);
