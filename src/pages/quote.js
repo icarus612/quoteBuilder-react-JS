@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
-import './application.css';
-import anime from './anime/lib/anime.es.js';
+import logo from '../logo.svg';
+import '../application.css';
+import anime from '../anime/lib/anime.es.js';
 
 class QuoteMachine extends React.Component {
 
