@@ -26,7 +26,8 @@ export default class BasicNeeds extends React.Component{
         this.setState({
             [option]: !this.state[option],
             subtotal: this.state[option] ? this.state.subtotal - Number(e.target.value) : this.state.subtotal + Number(e.target.value),
-        });        
+		});        
+		console.log(e.target.name)
     }
 	render(){
 		return (
@@ -41,11 +42,11 @@ export default class BasicNeeds extends React.Component{
 					<div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-start">
 						<div>
 							<input className="m-2" type="checkbox" id="option1" value={220} onClick={this.update} checked={this.state.option1} />
-							<label >
+							<label>
 								Blog
 							</label>
 						</div>
-						<div>
+						<div >
 							<input className="m-2" type="checkbox" id="option2" value={330} onClick={this.update} checked={this.state.option2} />
 							<label>
 								Events
@@ -77,7 +78,7 @@ export default class BasicNeeds extends React.Component{
 						</div>
 						<div>
 							<input className="m-2" type="checkbox" id="option7" value={330} onClick={this.update} checked={this.state.option7} />
-							<label >
+							<label>
 								Portfolio or Clients
 							</label>
 						</div>
