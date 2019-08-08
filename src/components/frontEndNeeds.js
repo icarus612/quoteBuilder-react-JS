@@ -27,32 +27,41 @@ export default class FrontEndNeeds extends React.Component{
 
             <form className="d-flex flex-column flex-wrap flex-md-row justify-content-center align-items-around">
                 <h3>Front End Needs</h3>
-                <div className="my-4 col-12 col-md-6">
-                    <input className="pl-2" type="radio" id="option1" value={100} onClick={this.update} checked={this.state.option1} />
+                <div>
+                    <input className="m-2" type="checkbox" id="option1" value={100} onClick={this.update} checked={this.state.option1} />
+                    <label >
+                        Professionally Written Content
+                    </label>
+                </div>
+                <div>
+                    <input className="m-2" type="checkbox" id="option2" value={100} onClick={this.update} checked={this.state.option2} />
+                    <label>
+                        Events Page
+                    </label>
+                </div>
+                <div>
+                    <input className="m-2" type="checkbox" id="option3" value={100} onClick={this.update} checked={this.state.option3} />
                     <label>
 
                     </label>
-                    <input className="pl-2" type="radio" id="option2" value={100} onClick={this.update} checked={this.state.option2} />
+                </div>
+                <div>
+                    <input className="m-2" type="checkbox" id="option4" value={100} onClick={this.update} checked={this.state.option4} />
                     <label>
 
                     </label>
-                    <input className="pl-2" type="radio" id="option3" value={100} onClick={this.update} checked={this.state.option3} />
-                        <label>
-
-                        </label>
-                    <input className="pl-2" type="radio" id="option4" value={100} onClick={this.update} checked={this.state.option4} />
-                        <label>
-
-                        </label>
-                    <input className="pl-2" type="radio" id="option5" value={100} onClick={this.update} checked={this.state.option5} />
-                        <label>
-
-                        </label>
-                    <input className="pl-2" type="radio" id="option6" value={100} onClick={this.update} checked={this.state.option6} />
+                </div>
+                <div>
+                    <input className="m-2" type="checkbox" id="option5" value={100} onClick={this.update} checked={this.state.option5} />
                     <label>
 
                     </label>
+                </div>
+                <div>
+                    <input className="m-2" type="checkbox" id="option6" value={100} onClick={this.update} checked={this.state.option6} />
+                    <label>
 
+                    </label>
                 </div>
             </form>
         )
