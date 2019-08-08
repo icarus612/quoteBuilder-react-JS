@@ -45,7 +45,7 @@ class QuoteMachine extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			spot: 1
+			spot: 0
 		}
 		this.next = this.next.bind(this);
 		this.prev = this.prev.bind(this);
