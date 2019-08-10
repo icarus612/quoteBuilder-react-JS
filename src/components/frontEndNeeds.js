@@ -3,18 +3,21 @@ import React from 'react';
 export default class FrontEndNeeds extends React.Component{
     constructor(props){
         super(props);
+        props= this.props.value;
         this.state= {
-            option1: this.props.option1,
-            option2: this.props.option2,
-            option3: this.props.option3,
-            option4: this.props.option4,
-            option5: this.props.option5,
-			option6: this.props.option6,
+            option1: props.option1,
+            option2: props.option2,
+            option3: props.option3,
+            option4: props.option4,
+            option5: props.option5,
+			option6: props.option6,
             subtotal: 0,
         }
         this.update = this.update.bind(this);
     }
- 
+    componentWillUnmount(){
+		this.props.onChange(this.state)
+	}
     update(e){
         let option = `${e.target.id}`; 
         this.setState({

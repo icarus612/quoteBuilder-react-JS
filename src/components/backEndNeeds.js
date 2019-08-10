@@ -3,15 +3,18 @@ import React from 'react';
 export default class BackEndNeeds extends React.Component{
     constructor(props){
         super(props);
+        props=this.props.value;
         this.state= {
-            option1: false,
-            option2: false,
-            option3: false,
+            option1: props.option1,
+            option2: props.option2,
+            option3: props.option3,
             subtotal: 0,
         }
         this.update = this.update.bind(this);
     }
- 
+    componentWillUnmount(){
+		this.props.onChange(this.state)
+	}
     update(e){
         let option = `${e.target.id}`; 
         this.setState({

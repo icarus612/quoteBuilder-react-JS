@@ -13,12 +13,8 @@ export default class Pages extends React.Component{
 		this.pageNumber = this.pageNumber.bind(this);
 		this.subtotal = this.subtotal.bind(this);
 	}
-	componentWillMount(){
-		console.log(this.props.value)
-	}
 	componentWillUnmount(){
 		this.props.onChange(this.state)
-		
 	}
     update(e){
         let option = `${e.target.id}`; 

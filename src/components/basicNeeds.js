@@ -2,32 +2,34 @@ import React from 'react';
 
 export default class BasicNeeds extends React.Component{
     constructor(props){
-        super(props);
+		super(props);
+		props = this.props.value;
         this.state= {
-            option1: this.props.option1,
-            option2: this.props.option2,
-            option3: this.props.option3,
-            option4: this.props.option4,
-            option5: this.props.option5,
-			option6: this.props.option6,
-			option7: this.props.option7,
-            option8: this.props.option8,
-            option9: this.props.option9,
-            option10: this.props.option10,
-            option11: this.props.option11,
-            option12: this.props.option12,
+            option1: props.option1,
+            option2: props.option2,
+            option3: props.option3,
+            option4: props.option4,
+            option5: props.option5,
+			option6: props.option6,
+			option7: props.option7,
+            option8: props.option8,
+            option9: props.option9,
+            option10: props.option10,
+            option11: props.option11,
+            option12: props.option12,
             subtotal: 0,
         }
         this.update = this.update.bind(this);
     }
- 
+	componentWillUnmount(){
+		this.props.onChange(this.state)
+	}
     update(e){
         let option = `${e.target.id}`; 
         this.setState({
             [option]: !this.state[option],
             subtotal: this.state[option] ? this.state.subtotal - Number(e.target.value) : this.state.subtotal + Number(e.target.value),
 		});        
-		console.log(e.target.name)
     }
 	render(){
 		return (

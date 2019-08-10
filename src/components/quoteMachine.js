@@ -9,28 +9,22 @@ class PriceBox extends React.Component {
 
 	constructor(props){
 	  super(props);
-	  this.state = {
-        pages: 0,
-        design: 0,
-        programming: 0,
-        currentPrice: 0,
-	  }
     }
 	  render(){
 		  return (
 				<div className="price-card p-3">
-                    <h5 id="pages" className={this.state.pages === 0 ? "d-none" : "d-block"}>
-                        Basic Site Needs: <span className="float-right">$ {this.state.pages}</span>
+                    <h5 id="pages" className={this.props.pages === 0 ? "d-none" : "d-block"}>
+                        Basic Site Needs: <span className="float-right">$ {this.props.pages}</span>
                     </h5>
-                    <h5 id="design" className={this.state.design === 0 ? "d-none" : "d-block"}>
-                        Dynamic Design: <span className="float-right">$ {this.state.design}</span>
+                    <h5 id="design" className={this.props.design === 0 ? "d-none" : "d-block"}>
+                        Dynamic Design: <span className="float-right">$ {this.props.design}</span>
                     </h5>
-                    <h5 id="programming" className={this.state.programming === 0 ? "d-none" : "d-block"}>
-                        Programming: <span className="float-right">$ {this.state.programming}</span>
+                    <h5 id="programming" className={this.props.programming === 0 ? "d-none" : "d-block"}>
+                        Programming: <span className="float-right">$ {this.props.programming}</span>
                     </h5>
 					<hr />
 					<h4 className="px-3 bold">
-						Subtotal:  <span className="float-right">$ {this.state.currentPrice}</span>
+						Subtotal:  <span className="float-right">$ {this.props.currentPrice}</span>
 					</h4>				
 				</div>
 		  );
@@ -44,7 +38,6 @@ class QuoteMachine extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-            spot: 0,
             pages: {
                 siteType: "",
                 subtotal: 0,
@@ -67,32 +60,48 @@ class QuoteMachine extends React.Component {
                 subtotal: 0,
             },
             backEndNeeds: {
+                option1: false,
+                option2: false,
+                option3: false,
                 subtotal: 0,
             },
             infoForm:{
+
                 subtotal: 0,
-            }
+            },
+            spot: 0,
+            subtotal: 0,
 		}
 		this.next = this.next.bind(this);
         this.prev = this.prev.bind(this);
-        this.storePages = this.storePages.bind(this);
-        this.cardIndex = ['spot', 'pages', 'basicNeeds', 'backEndNeeds', 'infoForm'];
-        this.cards = this.cards.bind(this);
+        this.storeInfo = this.storeInfo.bind(this);
+        this.cardIndex = ['pages', 'basicNeeds', 'backEndNeeds', 'infoForm'];
+        this.cards = [ <Pages onChange={this.storeInfo} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
+
 
     }
 
 	next(){
-        if (this.state.spot < this.cards.length - 1) this.setState({spot: this.state.spot+1})
+        if (this.state.spot < this.cards.length - 1) {
+            this.setState({spot: this.state.spot+1})
+
+        }
 	}
 	prev(){
 		if (this.state.spot > 0) {
             this.setState({spot: this.state.spot-1})
+
         }
     }
-    storePages(e){
-        this.setState({pages: {...e}});
+    storeInfo(e){
+        this.setState({[this.cardIndex[this.state.spot-1]] : {...e}});
+        
     }
-    cards = [ <Pages onChange={this.storePages} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeBasicNeeds} />, <BackEndNeeds value={this.state.backEndNeeds}/>, <InfoForm value={this.state.backEndNeeds}/>]
+    componentDidUpdate(){
+        console.log(this.cardIndex[this.state.spot], this.state)
+
+        this.cards = [ <Pages value={this.state.pages} onChange={this.storeInfo} />, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
+    }
 
 	render(){
 
@@ -113,7 +122,10 @@ class QuoteMachine extends React.Component {
                 </div>     
                 <div className="col-12 col-md-4">
                     <PriceBox 
-                        spot={this.state.spot}
+                        pages={this.state.pages.subtotal}
+                        design={this.state.basicNeeds.subtotal}
+                        programming={this.state.backEndNeeds.subtotal}
+                        currentPrice={this.state.subtotal}
                     />
                 </div>
             </div>
