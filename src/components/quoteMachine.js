@@ -37,36 +37,74 @@ class PriceBox extends React.Component {
 	  }
 	
   }
-
-let cards = [ <Pages />, <BasicNeeds />, <BackEndNeeds />, <InfoForm />];
+  
 
 class QuoteMachine extends React.Component {
 
 	constructor(props){
 		super(props);
 		this.state = {
-			spot: 0
+            spot: 0,
+            pages: {
+                siteType: "",
+                subtotal: 0,
+                design: 0,
+                pages: 0,
+            },
+            basicNeeds: {
+                option1: false,
+                option2: false,
+                option3: false,
+                option4: false,
+                option5: false,
+                option6: false,
+                option7: false,
+                option8: false,
+                option9: false,
+                option10: false,
+                option11: false,
+                option12: false,
+                subtotal: 0,
+            },
+            backEndNeeds: {
+                subtotal: 0,
+            },
+            infoForm:{
+                subtotal: 0,
+            }
 		}
 		this.next = this.next.bind(this);
-		this.prev = this.prev.bind(this);
-	}
-	next(){
-		if (this.state.spot < cards.length - 1) this.setState({spot: this.state.spot+1})
-	}
-	prev(){
-		if (this.state.spot > 0) this.setState({spot: this.state.spot-1})
+        this.prev = this.prev.bind(this);
+        this.storePages = this.storePages.bind(this);
+        this.cardIndex = ['spot', 'pages', 'basicNeeds', 'backEndNeeds', 'infoForm'];
+        this.cards = this.cards.bind(this);
+
     }
 
+	next(){
+        if (this.state.spot < this.cards.length - 1) this.setState({spot: this.state.spot+1})
+	}
+	prev(){
+		if (this.state.spot > 0) {
+            this.setState({spot: this.state.spot-1})
+        }
+    }
+    storePages(e){
+        this.setState({pages: {...e}});
+    }
+    cards = [ <Pages onChange={this.storePages} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeBasicNeeds} />, <BackEndNeeds value={this.state.backEndNeeds}/>, <InfoForm value={this.state.backEndNeeds}/>]
+
 	render(){
+
 		return (
             <div className='container flex-wrap flex-row d-flex justify-content-center align-items-center'>
                 <div className="col-12 col-md-8">
                     <div>
                         <h4>
-                            Step {this.state.spot + 1} of {cards.length}
+                            Step {this.state.spot + 1} of {this.cards.length}
                         </h4>
                     </div>
-                    {cards[this.state.spot]}
+                    {this.cards[this.state.spot]}
                     <div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
                         <button className="btn btn-lg btn-primary btn-purple-basic" onClick={this.prev}>Previous</button>
 

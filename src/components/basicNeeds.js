@@ -4,18 +4,18 @@ export default class BasicNeeds extends React.Component{
     constructor(props){
         super(props);
         this.state= {
-            option1: false,
-            option2: false,
-            option3: false,
-            option4: false,
-            option5: false,
-			option6: false,
-			option7: false,
-            option8: false,
-            option9: false,
-            option10: false,
-            option11: false,
-            option12: false,
+            option1: this.props.option1,
+            option2: this.props.option2,
+            option3: this.props.option3,
+            option4: this.props.option4,
+            option5: this.props.option5,
+			option6: this.props.option6,
+			option7: this.props.option7,
+            option8: this.props.option8,
+            option9: this.props.option9,
+            option10: this.props.option10,
+            option11: this.props.option11,
+            option12: this.props.option12,
             subtotal: 0,
         }
         this.update = this.update.bind(this);

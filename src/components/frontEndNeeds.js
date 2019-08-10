@@ -4,12 +4,12 @@ export default class FrontEndNeeds extends React.Component{
     constructor(props){
         super(props);
         this.state= {
-            option1: false,
-            option2: false,
-            option3: false,
-            option4: false,
-            option5: false,
-            option6: false,
+            option1: this.props.option1,
+            option2: this.props.option2,
+            option3: this.props.option3,
+            option4: this.props.option4,
+            option5: this.props.option5,
+			option6: this.props.option6,
             subtotal: 0,
         }
         this.update = this.update.bind(this);

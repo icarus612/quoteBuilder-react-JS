@@ -26,7 +26,7 @@ export default class InfoBox extends React.Component{
 						<textarea className="pl-2" placeholder="Message" id="Message"></textarea> 
 					</div>
 					<div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
-						<a className="btn btn-lg btn-primary btn-purple-basic" onClick={}>Get Quote</a>
+						<a className="btn btn-lg btn-primary btn-purple-basic" onClick={this.props.submitForm}>Get Quote</a>
 					</div>
 				</form>
 			</div>
