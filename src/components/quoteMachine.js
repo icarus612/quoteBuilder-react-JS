@@ -2,7 +2,6 @@ import React from 'react';
 import '../application.css';
 import InfoForm from './infoForm.js'
 import Pages from './pages.js'
-import FrontEndNeeds from './frontEndNeeds.js'
 import BackEndNeeds from './backEndNeeds.js'
 import BasicNeeds from './basicNeeds.js'
 class PriceBox extends React.Component {
@@ -75,13 +74,16 @@ class QuoteMachine extends React.Component {
 		this.next = this.next.bind(this);
         this.prev = this.prev.bind(this);
         this.storeInfo = this.storeInfo.bind(this);
-        this.cards = [ <Pages onChange={this.storeInfo} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
-
+        this.subtotal = this.subtotal.bind(this)
 
     }
-
+    subtotal(){
+        let state = this.state;
+        let subtotal = state.pages.subtotal + state.backEndNeeds.subtotal + state.basicNeeds.subtotal;
+        this.setState({subtotal: subtotal});
+    }
 	next(){
-        if (this.state.spot < this.cards.length - 1) {
+        if (this.state.spot < 5) {
             this.setState({spot: this.state.spot+1})
         }
 	}
@@ -93,21 +95,21 @@ class QuoteMachine extends React.Component {
     storeInfo(info, el){
         this.setState({[el] : {...info}});
     }
-    componentDidUpdate(){
-        this.cards = [ <Pages value={this.state.pages} onChange={this.storeInfo} />, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
-    }
+
 
 	render(){
+        let cards = [ <Pages onChange={this.storeInfo} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
 
 		return (
+
             <div className='container flex-wrap flex-row d-flex justify-content-center align-items-center'>
                 <div className="col-12 col-md-8">
                     <div>
                         <h4>
-                            Step {this.state.spot + 1} of {this.cards.length}
+                            Step {this.state.spot + 1} of {cards.length}
                         </h4>
                     </div>
-                    {this.cards[this.state.spot]}
+                    {cards[this.state.spot]}
                     <div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
                         <button className="btn btn-lg btn-primary btn-purple-basic" onClick={this.prev}>Previous</button>
 
@@ -115,12 +117,7 @@ class QuoteMachine extends React.Component {
                     </div>
                 </div>     
                 <div className="col-12 col-md-4">
-                    <PriceBox 
-                        pages={this.state.pages.subtotal}
-                        design={this.state.basicNeeds.subtotal}
-                        programming={this.state.backEndNeeds.subtotal}
-                        currentPrice={this.state.subtotal}
-                    />
+                    <PriceBox pages={this.state.pages.subtotal} design={this.state.basicNeeds.subtotal} programming={this.state.backEndNeeds.subtotal} currentPrice={this.state.subtotal} />
                 </div>
             </div>
       

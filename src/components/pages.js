@@ -11,42 +11,39 @@ export default class Pages extends React.Component{
         }
 		this.update = this.update.bind(this);
 		this.pageNumber = this.pageNumber.bind(this);
-		this.subtotal = this.subtotal.bind(this);
 	}
 	componentWillUnmount(){
-		this.props.onChange(this.state, "pages")
+		this.props.onChange(this.state, "pages");
 	}
-    update(e){
-        let option = `${e.target.id}`; 
-        this.setState({
-            siteType: option,
-		});
-		this.setState({ design: Number(e.target.value)})
 
-		this.subtotal()
+    update(e){
+		let option = `${e.target.id}`; 
+		let val = Number(e.target.value);
+        this.setState({
+			siteType: option, 
+			design: val,
+			subtotal: (this.state.pages * 100) + val,
+		})
 	}
 	pageNumber(e){
-		this.setState({ pages: Number(e.target.value)})
-		this.subtotal()
+		let val = Number(e.target.value)
+		this.setState({ pages: val, subtotal: this.state.design + (val * 100)})
 	}
-	subtotal(){
-		
-		this.setState({subtotal: Number(this.state.design) + (Number(this.state.pages) * 100)});
-	}
+	
 	render(){
 		return (
 
 			<form className="d-flex flex-column flex-wrap flex-row justify-content-center align-items-around">
 				<h3 className="mb-3">Lets Start With Pages</h3>
 				<div className="col-12 align-items-center">
-					<input type="radio" class="m-auto" id="basic" value={250} onClick={this.update}  checked={this.state.siteType == "basic"} />
+					<input type="radio" className="m-auto" id="basic" value={250} onChange={this.update}  checked={this.state.siteType === "basic"} />
                     <label className="pl-2 mb-0" id="basic">
 						Fast Design with Less Consulting & Meetings
                     </label>
 		
 				</div>
 				<div className="col-12 align-items-center">
-					<input type="radio" class="m-auto" id="custom" value={600} onClick={this.update} checked={this.state.siteType == "custom"} />
+					<input type="radio" className="m-auto" id="custom" value={600} onChange={this.update} checked={this.state.siteType === "custom"} />
                     <label className="pl-2 mb-0" id="custom">
 						Custom Website with Consultative Process
                     </label>
