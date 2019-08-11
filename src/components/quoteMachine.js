@@ -94,11 +94,11 @@ class QuoteMachine extends React.Component {
         }
     }
     storeInfo(e){
-        this.setState({[this.cardIndex[this.state.spot-1]] : {...e}});
-        
+        this.setState({[this.cardIndex[this.state.spot]] : {...e}});
+        console.log(e)
     }
     componentDidUpdate(){
-        console.log(this.cardIndex[this.state.spot], this.state)
+       
 
         this.cards = [ <Pages value={this.state.pages} onChange={this.storeInfo} />, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
     }

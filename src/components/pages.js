@@ -22,6 +22,7 @@ export default class Pages extends React.Component{
             siteType: option,
 		});
 		this.setState({ design: Number(e.target.value)})
+
 		this.subtotal()
 	}
 	pageNumber(e){
@@ -29,7 +30,8 @@ export default class Pages extends React.Component{
 		this.subtotal()
 	}
 	subtotal(){
-		this.setState({subtotal: this.state.design + (this.state.pages * 100)});
+		
+		this.setState({subtotal: Number(this.state.design) + (Number(this.state.pages) * 100)});
 	}
 	render(){
 		return (
