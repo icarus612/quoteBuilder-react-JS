@@ -178,6 +178,9 @@ textarea{
 input[type=text], input[type=phone], input[type=number]{
   height: 30px;
 }
+label{
+  width: 100%;
+}
   input[type=text], input[type=phone], input[type=number], textarea {
   width: 100%;
   border-radius: 4px;
@@ -186,7 +189,7 @@ input[type=text], input[type=phone], input[type=number]{
   color: rgba(125,125,125,.7) !important;
   transition: transform .3s;
 }
-input[type=number]{
+.page-num input[type=number]{
   width: auto !important;
   position: relative;
 }

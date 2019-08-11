@@ -70,7 +70,7 @@ class QuoteMachine extends React.Component {
                 phone: "",
                 subtotal: 0,
             },
-            spot: 3,
+            spot: 0,
             subtotal: 0,
 		}
 		this.next = this.next.bind(this);

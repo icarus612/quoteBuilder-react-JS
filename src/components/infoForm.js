@@ -14,7 +14,6 @@ export default class InfoBox extends React.Component{
 	}
 	typing(e){
 		this.setState({[e.target.id]: e.target.value})
-		console.log(this.state.name)
 	}
 	render(){
 		return (

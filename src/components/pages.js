@@ -67,6 +67,7 @@ export default class Pages extends React.Component{
 						min='0'
 						max='1000'
 						onChange={this.pageNumber}
+						className='page-num'
 						required
 						labelBefore
 					/>
