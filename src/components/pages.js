@@ -14,7 +14,7 @@ export default class Pages extends React.Component{
 		this.subtotal = this.subtotal.bind(this);
 	}
 	componentWillUnmount(){
-		this.props.onChange(this.state)
+		this.props.onChange(this.state, "pages")
 	}
     update(e){
         let option = `${e.target.id}`; 

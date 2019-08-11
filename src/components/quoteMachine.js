@@ -75,7 +75,6 @@ class QuoteMachine extends React.Component {
 		this.next = this.next.bind(this);
         this.prev = this.prev.bind(this);
         this.storeInfo = this.storeInfo.bind(this);
-        this.cardIndex = ['pages', 'basicNeeds', 'backEndNeeds', 'infoForm'];
         this.cards = [ <Pages onChange={this.storeInfo} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
 
 
@@ -84,22 +83,17 @@ class QuoteMachine extends React.Component {
 	next(){
         if (this.state.spot < this.cards.length - 1) {
             this.setState({spot: this.state.spot+1})
-
         }
 	}
 	prev(){
 		if (this.state.spot > 0) {
             this.setState({spot: this.state.spot-1})
-
         }
     }
-    storeInfo(e){
-        this.setState({[this.cardIndex[this.state.spot]] : {...e}});
-        console.log(e)
+    storeInfo(info, el){
+        this.setState({[el] : {...info}});
     }
     componentDidUpdate(){
-       
-
         this.cards = [ <Pages value={this.state.pages} onChange={this.storeInfo} />, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
     }
 

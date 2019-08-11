@@ -13,7 +13,7 @@ export default class BackEndNeeds extends React.Component{
         this.update = this.update.bind(this);
     }
     componentWillUnmount(){
-		this.props.onChange(this.state)
+		this.props.onChange(this.state, "backEndNeeds")
 	}
     update(e){
         let option = `${e.target.id}`; 
