@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Input from './input'
 export default class BasicNeeds extends React.Component{
     constructor(props){
 		super(props);
@@ -42,78 +42,104 @@ export default class BasicNeeds extends React.Component{
 						These are pages you will want built dynamicly so that you can update and add to parts of conent yourself.
 					</h5>
 					<div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-start">
-						<div>
-							<input className="m-2" type="checkbox" id="option1" value={220} onChange={this.update} checked={this.state.option1} />
-							<label>
-								Blog
-							</label>
-						</div>
-						<div >
-							<input className="m-2" type="checkbox" id="option2" value={330} onChange={this.update} checked={this.state.option2} />
-							<label>
-								Events
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option3" value={220} onChange={this.update} checked={this.state.option3} />
-							<label>
-								Specials
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option4" value={220} onChange={this.update} checked={this.state.option4} />
-							<label>
-								FAQ's
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option5" value={220} onChange={this.update} checked={this.state.option5} />
-							<label>
-								Staff/Board Members
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option6" value={220} onChange={this.update} checked={this.state.option6} />
-							<label>
-								News/Press Releases
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option7" value={330} onChange={this.update} checked={this.state.option7} />
-							<label>
-								Portfolio or Clients
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option8" value={220} onChange={this.update} checked={this.state.option8} />
-							<label>
-								Resources or Documentation Library
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option9" value={330} onChange={this.update} checked={this.state.option9} />
-							<label>
-								Projects
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option10" value={110} onChange={this.update} checked={this.state.option10} />
-							<label>
-								Sponsors
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option11" value={220} onChange={this.update} checked={this.state.option11} />
-							<label>
-								Careers/Jobs
-							</label>
-						</div>
-						<div>
-							<input className="m-2" type="checkbox" id="option12" value={110} onChange={this.update} checked={this.state.option12} />
-							<label>
-								Testimonials
-							</label>
-						</div>             
+						
+							<Input 
+								id='option1'
+								value={220} 
+								label='Blog'
+								type='checkbox'
+								checked={this.state.option1}
+								onChange={this.update}
+							/>
+				
+							<Input 
+								id='option2'
+								value={330} 
+								label='Events'
+								type='checkbox'
+								checked={this.state.option2}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option3'
+								value={220} 
+								label='Specials'
+								type='checkbox'
+								checked={this.state.option3}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option4'
+								value={220} 
+								label={`FAQ's`}
+								type='checkbox'
+								checked={this.state.option4}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option5'
+								value={220} 
+								label='Staff/Board Members'
+								type='checkbox'
+								checked={this.state.option5}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option6'
+								value={220} 
+								label='News/Press Releases'
+								type='checkbox'
+								checked={this.state.option6}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option7'
+								value={330} 
+								label='Portfolio or Clients'
+								type='checkbox'
+								checked={this.state.option7}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option8'
+								value={220} 
+								label='Resources or Documentation Library'
+								type='checkbox'
+								checked={this.state.option8}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option9'
+								value={330} 
+								label='Projects'
+								type='checkbox'
+								checked={this.state.option9}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option10'
+								value={110} 
+								label='Sponsors'
+								type='checkbox'
+								checked={this.state.option10}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option11'
+								value={220} 
+								label='Careers/Jobs'
+								type='checkbox'
+								checked={this.state.option11}
+								onChange={this.update}
+							/>
+							<Input 
+								id='option12'
+								value={110} 
+								label='Testimonials'
+								type='checkbox'
+								checked={this.state.option12}
+								onChange={this.update}
+							/>
 					</div>
 				</form>
 			</div>

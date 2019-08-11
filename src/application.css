@@ -186,7 +186,7 @@ input[type=text], input[type=phone], input[type=number]{
   color: rgba(125,125,125,.7) !important;
   transition: transform .3s;
 }
-input[type=number]#pages{
+input[type=number]{
   width: auto !important;
   position: relative;
 }

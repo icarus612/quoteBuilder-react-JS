@@ -1,11 +1,21 @@
 import React from 'react';
-
+import Input from'./input.js'
 export default class InfoBox extends React.Component{
 	constructor(props){
 		super(props);
-	
+		props=this.props.value;
+		this.state={
+			name: props.name,
+			phone: props.phone,
+			email: props.email,
+			message: props.message
+		}
+		this.typing = this.typing.bind(this)
 	}
-
+	typing(e){
+		this.setState({[e.target.id]: e.target.value})
+		console.log(this.state.name)
+	}
 	render(){
 		return (
 			<div>
@@ -14,13 +24,31 @@ export default class InfoBox extends React.Component{
 				</h3>
 				<form className="d-flex flex-column flex-wrap flex-md-row justify-content-center align-items-around">
 					<div className="my-4 col-12 col-md-6">
-						<input className="pl-2" value="Name" id="Name" type="text" />
+						<Input 
+							id='name'
+							value={this.state.name}
+							placeholder=' Name'
+							type='text'
+							onChange={this.typing}
+						/>		
 					</div>
 					<div className="my-4 col-12 col-md-6">
-						<input className="pl-2" value="Phone" id="Phone" type="phone" />
+						<Input 
+							id='phone'
+							value={this.state.phone}
+							placeholder=' Phone'
+							type='phone'
+							onChange={this.typing}
+						/>
 					</div>
 					<div className="my-4 col-12">
-						<input className="pl-2" value="Email" id="Email" type="text" />
+						<Input 
+							id='email'
+							value={this.state.email}
+							placeholder=' Email'
+							type='text'
+							onChange={this.typing}
+						/>
 					</div>
 					<div className="my-4 col-12">
 						<textarea className="pl-2" placeholder="Message" id="Message"></textarea> 

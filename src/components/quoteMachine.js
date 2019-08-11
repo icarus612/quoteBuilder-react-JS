@@ -65,10 +65,12 @@ class QuoteMachine extends React.Component {
                 subtotal: 0,
             },
             infoForm:{
-
+                name: "",
+                email: "",
+                phone: "",
                 subtotal: 0,
             },
-            spot: 0,
+            spot: 3,
             subtotal: 0,
 		}
 		this.next = this.next.bind(this);
@@ -98,7 +100,7 @@ class QuoteMachine extends React.Component {
 
 
 	render(){
-        let cards = [ <Pages onChange={this.storeInfo} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm />]
+        let cards = [ <Pages onChange={this.storeInfo} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} onChange={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} onChange={this.storeInfo} />, <InfoForm value={this.state.infoForm} onChange={this.storeInfo} />]
 
 		return (
 

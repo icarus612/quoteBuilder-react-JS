@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Input from "./input.js";
 export default class Pages extends React.Component{
 	constructor(props){
         super(props);
@@ -36,23 +36,40 @@ export default class Pages extends React.Component{
 			<form className="d-flex flex-column flex-wrap flex-row justify-content-center align-items-around">
 				<h3 className="mb-3">Lets Start With Pages</h3>
 				<div className="col-12 align-items-center">
-					<input type="radio" className="m-auto" id="basic" value={250} onChange={this.update}  checked={this.state.siteType === "basic"} />
-                    <label className="pl-2 mb-0" id="basic">
-						Fast Design with Less Consulting & Meetings
-                    </label>
+				<Input 
+						id='basic'
+						value={240} 
+						label='Fast Design with Less Consulting & Meetings'
+						type='radio'
+						checked={this.state.siteType === "basic"}
+						onChange={this.update}
+					/>
 		
 				</div>
 				<div className="col-12 align-items-center">
-					<input type="radio" className="m-auto" id="custom" value={600} onChange={this.update} checked={this.state.siteType === "custom"} />
-                    <label className="pl-2 mb-0" id="custom">
-						Custom Website with Consultative Process
-                    </label>
+					<Input 
+						id='custom'
+						value={600} 
+						label='Custom Website with Consultative Process'
+						type='radio'
+						checked={this.state.siteType === "custom"}
+						onChange={this.update}
+					/>
 				</div>
 				<div className="my-4 col-12 d-flex flex-row align-items-center justify-content-start">
-					<label className="pr-2 mb-0">
-						How many pages will you want custom built?
-                    </label>
-					<input className="pl-2" onChange={this.pageNumber} placeholder="0" id="pages" min="1" max="1000" step="1" type="number" value={this.state.pages} required/>
+		
+					<Input 
+						id='pages'
+						value={this.state.pages} 
+						label='How many pages will you want custom built?'
+						type='number'
+						step='1'
+						min='0'
+						max='1000'
+						onChange={this.pageNumber}
+						required
+						labelBefore
+					/>
 				</div>
 				
 		
