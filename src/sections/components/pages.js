@@ -1,36 +1,27 @@
 import React from 'react';
 import Input from "./input.js";
-export default class Pages extends React.Component{
-	constructor(props){
-        super(props);
-        this.state = {
-			siteType: this.props.value.siteType,
-			subtotal: this.props.value.subtotal,
-			design: this.props.value.design,
-			pages: this.props.value.pages,
-        }
-		this.update = this.update.bind(this);
-		this.pageNumber = this.pageNumber.bind(this);
-	}
-	componentWillUnmount(){
-		this.props.onChange(this.state, "pages");
-	}
-
-    update(e){
+const Pages = (props) => {
+	let value = props.value;
+    let update = (e) =>{
 		let option = `${e.target.id}`; 
 		let val = Number(e.target.value);
-        this.setState({
+        props.update({
 			siteType: option, 
 			design: val,
-			subtotal: (this.state.pages * 100) + val,
-		})
+			subtotal: (value.pages * 100) + val,
+			pages: value.pages
+		}, "pages")
 	}
-	pageNumber(e){
+	let pageNumber = (e) => {
 		let val = Number(e.target.value)
-		this.setState({ pages: val, subtotal: this.state.design + (val * 100)})
+		props.update({
+			siteType: value.siteType,
+			pages: val, 
+			design: value.design,
+			subtotal: value.design + (val * 100),
+		}, "pages")
 	}
 	
-	render(){
 		return (
 
 			<form className="d-flex flex-column flex-wrap flex-row justify-content-center align-items-around">
@@ -41,8 +32,8 @@ export default class Pages extends React.Component{
 						value={240} 
 						label='Fast Design with Less Consulting & Meetings'
 						type='radio'
-						checked={this.state.siteType === "basic"}
-						onChange={this.update}
+						checked={value.siteType === "basic"}
+						onChange={update}
 					/>
 		
 				</div>
@@ -52,21 +43,21 @@ export default class Pages extends React.Component{
 						value={600} 
 						label='Custom Website with Consultative Process'
 						type='radio'
-						checked={this.state.siteType === "custom"}
-						onChange={this.update}
+						checked={value.siteType === "custom"}
+						onChange={update}
 					/>
 				</div>
 				<div className="my-4 col-12 d-flex flex-row align-items-center justify-content-start">
 		
 					<Input 
 						id='pages'
-						value={this.state.pages} 
+						value={value.pages} 
 						label='How many pages will you want custom built?'
 						type='number'
 						step='1'
 						min='0'
 						max='1000'
-						onChange={this.pageNumber}
+						onChange={pageNumber}
 						className='page-num'
 						required
 						labelBefore
@@ -76,5 +67,6 @@ export default class Pages extends React.Component{
 		
 			</form>
 		)
-	}
+	
 }
+export default Pages;

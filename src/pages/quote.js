@@ -1,6 +1,6 @@
 import React from 'react';
 import '../application.css';
-import QuoteMachine from '../components/quoteMachine.js'
+import QuoteMachine from '../sections/quoteMachine.js'
 
   
   class Quote extends React.Component {
