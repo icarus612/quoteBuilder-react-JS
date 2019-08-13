@@ -37,16 +37,14 @@ class QuoteMachine extends React.Component {
                 name: "",
                 email: "",
                 phone: "",
-                subtotal: 0,
+                message: "",
             },
             spot: 0,
 		}
 		this.next = this.next.bind(this);
         this.prev = this.prev.bind(this);
         this.storeInfo = this.storeInfo.bind(this);
-
     }
-
 	next(){
         if (this.state.spot < 3) {
             this.setState({spot: this.state.spot+1})

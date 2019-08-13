@@ -1,21 +1,14 @@
 import React from 'react';
 import Input from'./input.js'
-export default class InfoBox extends React.Component{
-	constructor(props){
-		super(props);
-		props=this.props.value;
-		this.state={
-			name: props.name,
-			phone: props.phone,
-			email: props.email,
-			message: props.message
-		}
-		this.typing = this.typing.bind(this)
-	}
-	typing(e){
-		this.setState({[e.target.id]: e.target.value})
-	}
-	render(){
+let InfoBox = (props) => {
+	let value = props.value;
+	let  typing = (e) =>{
+        let newSet = {... value};
+        let id = e.target.id,
+         inner = e.target.value;
+        newSet[id] = inner;
+        props.update({...newSet}, "infoForm");    
+    }
 		return (
 			<div>
 				<h3>
@@ -25,39 +18,40 @@ export default class InfoBox extends React.Component{
 					<div className="my-4 col-12 col-md-6">
 						<Input 
 							id='name'
-							value={this.state.name}
+							value={value.name}
 							placeholder=' Name'
 							type='text'
-							onChange={this.typing}
+							onChange={typing}
 						/>		
 					</div>
 					<div className="my-4 col-12 col-md-6">
 						<Input 
 							id='phone'
-							value={this.state.phone}
+							value={value.phone}
 							placeholder=' Phone'
 							type='phone'
-							onChange={this.typing}
+							onChange={typing}
 						/>
 					</div>
 					<div className="my-4 col-12">
 						<Input 
 							id='email'
-							value={this.state.email}
+							value={value.email}
 							placeholder=' Email'
 							type='text'
-							onChange={this.typing}
+							onChange={typing}
 						/>
 					</div>
 					<div className="my-4 col-12">
-						<textarea className="pl-2" placeholder="Message" id="Message"></textarea> 
+						<textarea className="pl-2" placeholder="Message" id="message" onChange={typing}>{value.message}</textarea> 
 					</div>
 					<div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
-						<a className="btn btn-lg btn-primary btn-purple-basic" onClick={this.props.submitForm}>Get Quote</a>
+						<a className="btn btn-lg btn-primary btn-purple-basic" onClick={props.submitForm}>Get Quote</a>
 					</div>
 				</form>
 			</div>
 			
 		)
-	}
+	
 }
+export default InfoBox;
