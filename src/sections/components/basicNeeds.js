@@ -2,14 +2,14 @@ import React from 'react';
 import Input from './input'
 const BasicNeeds = (props) => {
 	let value = props.value;
-	
+
     let  update = (e) =>{
         let newSet = {... value};
         let id = e.target.id,
          x = Number(e.target.value);
         newSet[id] = !newSet[id];
         newSet[id] ? newSet.subtotal += x : newSet.subtotal -= x;
-        props.update({...newSet}, "backEndNeeds");    
+        props.update({...newSet}, "basicNeeds");    
     }
 		return (
 			<div subtotal={value.subtotal}>
