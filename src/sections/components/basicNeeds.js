@@ -9,7 +9,7 @@ const BasicNeeds = (props) => {
          x = Number(e.target.value);
         newSet[id] = !newSet[id];
         newSet[id] ? newSet.subtotal += x : newSet.subtotal -= x;
-        props.update({...newSet}, "basicNeeds", def);    
+        props.update({...newSet}, "basicNeeds", `${def}: Most of these pages require a basic database and editing features built in. Theses pages will need to be built dynamicly. Note - this is only for full pages. Some of these can be built as less dynamic sections.`);    
     }
 		return (
 			<div subtotal={value.subtotal}>
@@ -18,7 +18,7 @@ const BasicNeeds = (props) => {
 						Basic Pages Needs
 					</h3>
 					<h5>
-						These are pages you will want built dynamicly so that you can update and add to parts of conent yourself.
+						Do you plan to include any of these types of pages in your site?
 					</h5>
 					<div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-start">
 						
@@ -29,7 +29,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option1}
 								onChange={update}
-								definition='Blog Page - requires basic database features'
+								definition='Blog Page'
 							/>
 				
 							<Input 
@@ -39,7 +39,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option2}
 								onChange={update}
-								definition='Events Page - requires basic database and editing features'
+								definition='Events Page'
 							/>
 							<Input 
 								id='option3'
@@ -48,7 +48,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option3}
 								onChange={update}
-								definition='Specials Page - requires basic database'
+								definition='Specials Page'
 							/>
 							<Input 
 								id='option4'
@@ -66,7 +66,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option5}
 								onChange={update}
-								definition=''
+								definition='Staff or Board Members Page'
 								/>
 							<Input 
 								id='option6'
@@ -75,34 +75,34 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option6}
 								onChange={update}
-								definition=''
+								definition='News or Press Release Page'
 							/>
 							<Input 
 								id='option7'
 								value={330} 
-								label='Portfolio or Clients'
+								label='Clients'
 								type='checkbox'
 								checked={value.option7}
 								onChange={update}
-								definition=''
+								definition='Clients Page'
 							/>
 							<Input 
 								id='option8'
 								value={220} 
-								label='Resources or Documentation Library'
+								label='Resources/Documentation Library'
 								type='checkbox'
 								checked={value.option8}
 								onChange={update}
-								definition=''
+								definition='Resources or Documentation Library Page'
 							/>
 							<Input 
 								id='option9'
 								value={330} 
-								label='Projects'
+								label='Projects/Portfolio'
 								type='checkbox'
 								checked={value.option9}
 								onChange={update}
-								definition=''
+								definition='Projects or Portfolio Page'
 							/>
 							<Input 
 								id='option10'
@@ -111,7 +111,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option10}
 								onChange={update}
-								definition=''
+								definition='Sponsors Page'
 							/>
 							<Input 
 								id='option11'
@@ -120,7 +120,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option11}
 								onChange={update}
-								definition=''
+								definition='Careers or Jobs Page'
 							/>
 							<Input 
 								id='option12'
@@ -129,7 +129,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option12}
 								onChange={update}
-								definition=''
+								definition='Testeomnials Page'
 							/>
 					</div>
 				</form>
