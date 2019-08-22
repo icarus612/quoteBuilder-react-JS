@@ -8,7 +8,6 @@ const BackEndNeeds = (props) => {
         let id = e.target.id,
          inner = e.target.value;
         newSet[id] = inner;
-        console.log(newSet)
         props.update({...newSet}, "backEndNeeds", " Any additional info about your eCommerce needs?");    
     }
 
