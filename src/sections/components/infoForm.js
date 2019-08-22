@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from'./input.js'
+import Button from './button.js'
 let InfoBox = (props) => {
 	let value = props.value;
 	let  typing = (e) =>{
@@ -8,7 +9,8 @@ let InfoBox = (props) => {
          inner = e.target.value;
         newSet[id] = inner;
         props.update({...newSet}, "infoForm");    
-    }
+	}
+	
 		return (
 			<div>
 				<h3>
@@ -46,7 +48,7 @@ let InfoBox = (props) => {
 						<textarea className="pl-2" placeholder="Message" id="message" onChange={typing}>{value.message}</textarea> 
 					</div>
 					<div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
-						<a className="btn btn-lg btn-primary btn-purple-basic" onClick={props.submitForm}>Get Quote</a>
+						<Button size='lg' type='button' simple onClick={props.submitForm}>Submit Form</Button>
 					</div>
 				</form>
 			</div>

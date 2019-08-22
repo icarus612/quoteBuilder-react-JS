@@ -89,7 +89,7 @@ const BasicNeeds = (props) => {
 							<Input 
 								id='option8'
 								value={220} 
-								label='Resources/Documentation Library'
+								label='Resources or Documentation Library'
 								type='checkbox'
 								checked={value.option8}
 								onChange={update}

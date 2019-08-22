@@ -4,6 +4,7 @@ import BackEndNeeds from './backEndNeeds.js';
 import BasicNeeds from './basicNeeds.js';
 import PriceBox from './priceBox.js';
 import Input from './input.js';
+import Button from './button.js';
 
 export {
     InfoForm,
@@ -11,5 +12,6 @@ export {
     BasicNeeds,
     BackEndNeeds,
     PriceBox,
-    Input
+    Input,
+    Button
 }

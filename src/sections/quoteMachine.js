@@ -1,5 +1,5 @@
 import React from 'react';
-import { InfoForm, Pages, BasicNeeds, BackEndNeeds, PriceBox } from './components/router.js';
+import { InfoForm, Pages, BasicNeeds, BackEndNeeds, PriceBox, Button } from './components/router.js';
 
 class QuoteMachine extends React.Component {
 
@@ -29,9 +29,13 @@ class QuoteMachine extends React.Component {
             },
             backEndNeeds: {
                 option1: false,
+                sudo1: {options: [false, false, false, false], subtotal:0},
                 option2: false,
+                sudo2: {options: [false, false, false], subtotal:0},
                 option3: false,
+                sudo3: {options: [false, false, false, false], subtotal:0},
                 subtotal: 0,
+                message: "",
             },
             infoForm:{
                 name: "",
@@ -45,24 +49,28 @@ class QuoteMachine extends React.Component {
 		this.next = this.next.bind(this);
         this.prev = this.prev.bind(this);
         this.storeInfo = this.storeInfo.bind(this);
+        this.submitForm = this.submitForm.bind(this);
     }
 	next(){
         if (this.state.spot < 3) {
-            this.setState({spot: this.state.spot+1})
+            this.setState({spot: this.state.spot+1, definition: ""})
         }
 	}
 	prev(){
 		if (this.state.spot > 0) {
-            this.setState({spot: this.state.spot-1})
+            this.setState({spot: this.state.spot-1, definition: ""})
         }
     }
     storeInfo(info, el, def){
         this.setState({[el] : {...info}, definition: def});
     }
+    submitForm(){
+        window.open("/thanks", "_self");
+    }
 
 
 	render(){
-        let cards = [ <Pages update={this.storeInfo} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} update={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} update={this.storeInfo} />, <InfoForm value={this.state.infoForm} update={this.storeInfo} />]
+        let cards = [ <Pages update={this.storeInfo} value={this.state.pages}/>, <BasicNeeds value={this.state.basicNeeds} update={this.storeInfo} />, <BackEndNeeds value={this.state.backEndNeeds} update={this.storeInfo} />, <InfoForm value={this.state.infoForm} update={this.storeInfo} submitForm={this.submitForm}/>]
 
 		return (
 
@@ -78,9 +86,10 @@ class QuoteMachine extends React.Component {
                         {this.state.definition}
                     </div>
                     <div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
-                        <button className="btn btn-lg btn-primary btn-purple-basic" onClick={this.prev}>Previous</button>
+                        {this.state.spot !== 0 ? <Button size='lg' simple onClick={this.prev}>Previous</Button> : null}
+                        
+                        {this.state.spot !== cards.length -1 ? <Button size='lg' onClick={this.next}>Next</Button> : null}
 
-                        <button className="btn btn-lg btn-primary btn-purple" onClick={this.next}>Next</button>
                     </div>
                 </div>     
                 <div className="col-12 col-md-4">
