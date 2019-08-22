@@ -2,7 +2,7 @@ import React from 'react';
 import Input from "./input.js";
 const Pages = (props) => {
 	let value = props.value;
-    let update = (e) =>{
+    let update = (e, def) =>{
 		let option = `${e.target.id}`; 
 		let val = Number(e.target.value);
         props.update({
@@ -10,16 +10,16 @@ const Pages = (props) => {
 			design: val,
 			subtotal: (value.pages * 100) + val,
 			pages: value.pages
-		}, "pages")
+		}, "pages", def)
 	}
-	let pageNumber = (e) => {
+	let pageNumber = (e, def) => {
 		let val = Number(e.target.value)
 		props.update({
 			siteType: value.siteType,
 			pages: val, 
 			design: value.design,
 			subtotal: value.design + (val * 100),
-		}, "pages")
+		}, "pages", def)
 	}
 	
 		return (
@@ -34,6 +34,7 @@ const Pages = (props) => {
 						type='radio'
 						checked={value.siteType === "basic"}
 						onChange={update}
+						definition='We build a templated site, with consoltations in the beginning to get the proper theme and styling. A more hands off approach.'
 					/>
 		
 				</div>
@@ -45,6 +46,7 @@ const Pages = (props) => {
 						type='radio'
 						checked={value.siteType === "custom"}
 						onChange={update}
+						definition='We build you a custom site, with multiple consaltations to get capture exactly what you invision, where you get to be a part of the large and small scale process.'
 					/>
 				</div>
 				<div className="my-4 col-12 d-flex flex-row align-items-center justify-content-start">
@@ -61,6 +63,7 @@ const Pages = (props) => {
 						className='page-num'
 						required
 						labelBefore
+						definition="This is the number of pages you will want us to build for you (Home, contact, ect.). Any page you won't want to build on your own."
 					/>
 				</div>
 				

@@ -40,6 +40,7 @@ class QuoteMachine extends React.Component {
                 message: "",
             },
             spot: 0,
+            definition: "",
 		}
 		this.next = this.next.bind(this);
         this.prev = this.prev.bind(this);
@@ -55,9 +56,8 @@ class QuoteMachine extends React.Component {
             this.setState({spot: this.state.spot-1})
         }
     }
-    storeInfo(info, el){
-        this.setState({[el] : {...info}});
-        console.log(this.state)
+    storeInfo(info, el, def){
+        this.setState({[el] : {...info}, definition: def});
     }
 
 
@@ -74,6 +74,9 @@ class QuoteMachine extends React.Component {
                         </h4>
                     </div>
                     {cards[this.state.spot]}
+                    <div>
+                        {this.state.definition}
+                    </div>
                     <div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
                         <button className="btn btn-lg btn-primary btn-purple-basic" onClick={this.prev}>Previous</button>
 

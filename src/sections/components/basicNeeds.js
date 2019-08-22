@@ -3,13 +3,13 @@ import Input from './input'
 const BasicNeeds = (props) => {
 	let value = props.value;
 
-    let  update = (e) =>{
+    let  update = (e, def) =>{
         let newSet = {... value};
         let id = e.target.id,
          x = Number(e.target.value);
         newSet[id] = !newSet[id];
         newSet[id] ? newSet.subtotal += x : newSet.subtotal -= x;
-        props.update({...newSet}, "basicNeeds");    
+        props.update({...newSet}, "basicNeeds", def);    
     }
 		return (
 			<div subtotal={value.subtotal}>
@@ -29,6 +29,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option1}
 								onChange={update}
+								definition='Blog Page - requires basic database features'
 							/>
 				
 							<Input 
@@ -38,6 +39,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option2}
 								onChange={update}
+								definition='Events Page - requires basic database and editing features'
 							/>
 							<Input 
 								id='option3'
@@ -46,6 +48,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option3}
 								onChange={update}
+								definition='Specials Page - requires basic database'
 							/>
 							<Input 
 								id='option4'
@@ -54,7 +57,8 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option4}
 								onChange={update}
-							/>
+								definition=''
+								/>
 							<Input 
 								id='option5'
 								value={220} 
@@ -62,7 +66,8 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option5}
 								onChange={update}
-							/>
+								definition=''
+								/>
 							<Input 
 								id='option6'
 								value={220} 
@@ -70,6 +75,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option6}
 								onChange={update}
+								definition=''
 							/>
 							<Input 
 								id='option7'
@@ -78,6 +84,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option7}
 								onChange={update}
+								definition=''
 							/>
 							<Input 
 								id='option8'
@@ -86,6 +93,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option8}
 								onChange={update}
+								definition=''
 							/>
 							<Input 
 								id='option9'
@@ -94,6 +102,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option9}
 								onChange={update}
+								definition=''
 							/>
 							<Input 
 								id='option10'
@@ -102,6 +111,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option10}
 								onChange={update}
+								definition=''
 							/>
 							<Input 
 								id='option11'
@@ -110,6 +120,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option11}
 								onChange={update}
+								definition=''
 							/>
 							<Input 
 								id='option12'
@@ -118,6 +129,7 @@ const BasicNeeds = (props) => {
 								type='checkbox'
 								checked={value.option12}
 								onChange={update}
+								definition=''
 							/>
 					</div>
 				</form>
