@@ -27,7 +27,6 @@ const BackEndNeeds = (props) => {
         }
         newSet[id].subtotal = Number(e);
         newSet.subtotal += newSet[id].subtotal;
-
         props.update({...newSet}, "backEndNeeds", '');    
 
     }

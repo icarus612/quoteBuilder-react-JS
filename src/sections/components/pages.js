@@ -7,7 +7,7 @@ const Pages = (props) => {
 		let val = Number(e.target.value);
         props.update({
 			siteType: option, 
-			design: val,
+			design: (value.pages * 100) + val,
 			subtotal: (value.pages * 100) + val,
 			pages: value.pages
 		}, "pages", def)
@@ -17,13 +17,11 @@ const Pages = (props) => {
 		props.update({
 			siteType: value.siteType,
 			pages: val, 
-			design: value.design,
+			design: value.design + (val * 100),
 			subtotal: value.design + (val * 100),
 		}, "pages", def)
 	}
-	
 		return (
-
 			<form className="d-flex flex-column flex-wrap flex-row justify-content-center align-items-around">
 				<h3 className="mb-3">Lets Start With Pages</h3>
 				<div className="col-12 align-items-center">
