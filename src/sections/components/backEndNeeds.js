@@ -1,12 +1,13 @@
 import React from 'react';
-import Input from './input.js'
-import Scale from './scale.js'
+import Input from './input.js';
+import Scale from './scale.js';
+
 const BackEndNeeds = (props) => {
     let value = props.value;
     let typing = (e) =>{
-        let newSet = {... value};
-        let id = e.target.id,
-         inner = e.target.value;
+        let newSet = {... value},
+            id = e.target.id,
+            inner = e.target.value;
         newSet[id] = inner;
         props.update({...newSet}, "backEndNeeds", " Any additional info about your eCommerce needs?");    
     }
