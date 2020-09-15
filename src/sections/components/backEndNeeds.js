@@ -3,7 +3,7 @@ import Input from './input.js'
 import Scale from './scale.js'
 const BackEndNeeds = (props) => {
     let value = props.value;
-    let  typing = (e) =>{
+    let typing = (e) =>{
         let newSet = {... value};
         let id = e.target.id,
          inner = e.target.value;
@@ -11,7 +11,7 @@ const BackEndNeeds = (props) => {
         props.update({...newSet}, "backEndNeeds", " Any additional info about your eCommerce needs?");    
     }
 
-    let  update = (e, def) =>{
+    let update = (e, def) =>{
         let newSet = {... value};
         let id = e.target.id,
          x = Number(e.target.value);
