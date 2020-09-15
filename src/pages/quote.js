@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../application.css';
-import QuoteMachine from '../sections/quoteMachine.js'
+import QuoteMachine from '../sections/quoteMachine.js';
+import {animateBG} from '../colorChanger.js'
 
   
-const Quote = (props) =>  {
+const Quote = (props) => {
+
+	useEffect(() => {
+		animateBG(".color-change-bg", ["#d8bfd8", "#DDA0DD", "#BA55D3", "#9932CC", "#4B0082", "#9370DB", "#DDA0DD"], 2000);
+	});
 	return (
 		<article id="contact">
 			<section className="py-5 h-100vh d-flex flex-wrap overflow-hidden color-change-bg">
