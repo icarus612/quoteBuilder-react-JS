@@ -4,7 +4,7 @@ const BasicNeeds = (props) => {
 	let value = props.value;
 
     let  update = (e, def) =>{
-        let newSet = {... value};
+        let newSet = {...value};
         let id = e.target.id,
          x = Number(e.target.value);
         newSet[id] = !newSet[id];
