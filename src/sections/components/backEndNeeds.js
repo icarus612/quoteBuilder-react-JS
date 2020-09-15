@@ -13,7 +13,7 @@ const BackEndNeeds = (props) => {
     }
 
     let update = (e, def) => {
-        let newSet = {... value};
+        let newSet = {...value};
         let id = e.target.id,
          x = Number(e.target.value);
         newSet[id] = !newSet[id];
