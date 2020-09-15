@@ -2,9 +2,6 @@ import React from 'react';
 
 export default class PriceBox extends React.Component {
 
-	constructor(props){
-	  super(props);
-    }
 	  render(){
 		  return (
 				<div className="price-card p-3">

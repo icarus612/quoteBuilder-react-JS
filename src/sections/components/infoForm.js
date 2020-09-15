@@ -4,7 +4,7 @@ import Button from './button.js'
 let InfoBox = (props) => {
 	let value = props.value;
 	let  typing = (e) =>{
-        let newSet = {... value};
+        let newSet = {...value};
         let id = e.target.id,
          inner = e.target.value;
         newSet[id] = inner;
