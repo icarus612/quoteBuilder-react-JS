@@ -1,9 +1,9 @@
 
-import QuoteMachine from "./pages/quote.js";
+import Quote from "./pages/quote.js";
 
 
 var indexRoutes = [
-  { path: "/", name: "HomePage", component: QuoteMachine }
+  { path: "/", name: "HomePage", component: Quote }
 ];
 
 export default indexRoutes;
