@@ -1,6 +1,6 @@
-import React from 'react';
-import Input from "./input.js";
-const Pages = (props) => {
+import Input from "components/input";
+
+export default (props) => {
 	let value = props.value;
     let update = (e, def) =>{
 		let option = `${e.target.id}`; 
@@ -70,4 +70,3 @@ const Pages = (props) => {
 		)
 	
 }
-export default Pages;
